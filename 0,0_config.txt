@@ -1,0 +1,3 @@
+MAP 0,0
+
+ITEM Kevin 30 60 Bacon.jpg
