@@ -37,9 +37,13 @@ public class TestSpace{
       double ns = 1000000000;
       double delta = 0;
       long timer = System.currentTimeMillis();
-      int frames = 0;
       while(!endMet){
          long now = System.nanoTime();
+         delta += (now - lastTime) / ns;
+            lastTime = now;
+            while(delta >= 1){
+                delta--;
+            }
          delta += (now - lastTime) / ns;
          lastTime = now;
          if (keyPressed.key("W")){
