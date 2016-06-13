@@ -32,7 +32,7 @@ public class Environment extends Map{
          if(walls[y-1][x] == -3584){blocked = true;}
       }
       if(direction.equals("DOWN")) {
-         if(walls[y=1][x] == -3584){blocked = true;}
+         if(walls[y+1][x] == -3584){blocked = true;}
       }
       if(direction.equals("LEFT")) {
          if(walls[y][x-1] == -3584){blocked = true;}
