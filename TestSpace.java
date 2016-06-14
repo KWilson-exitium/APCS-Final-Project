@@ -2,6 +2,11 @@ import java.util.*;
 import java.awt.*;
 import java.io.*;
 public class TestSpace{
+   long lastTime;
+   double amountOfTicks = 60.0;
+   double ns = 1000000000;
+   double delta = 0;
+   long timer = System.currentTimeMillis();
    public static void main(String[] args)throws FileNotFoundException , IOException{
       DrawingPanel gameWindow = new DrawingPanel(800,500);
       Graphics g = gameWindow.getGraphics();
@@ -32,27 +37,16 @@ public class TestSpace{
    public static void MapTest(Graphics g , Map Layout , boolean endMet , KeyTest keyPressed)throws IOException{
       int x = 0;
       int y = 1;
-      long lastTime = System.nanoTime();
-      double amountOfTicks = 60.0;
-      double ns = 1000000000;
-      double delta = 0;
-      long timer = System.currentTimeMillis();
+      lastTime = System.nanoTime();
       while(!endMet){
-         long now = System.nanoTime();
-         delta += (now - lastTime) / ns;
-            lastTime = now;
-            while(delta >= 1){
-                delta--;
-            }
-         delta += (now - lastTime) / ns;
-         lastTime = now;
+         Layout.update(delta , lastTime , ns);
          if (keyPressed.key("W")){
-            y++;
+            y--;
          }
          Layout.drawRoom(x , y , g);
-         if(x == 0 && y == 2){
+         if(x == 0 && y == 0){
             endMet = true;
          }
-      }  
+      }
    }
 }

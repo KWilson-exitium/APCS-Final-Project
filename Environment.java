@@ -25,7 +25,7 @@ public class Environment extends Map{
    }
   
    public boolean isWall(int x, int y, String direction) throws IOException{
-      BufferedImage room = ImageIO.read(new File(level.getX() + "," + level.getY() + ".png"));   
+      BufferedImage room = ImageIO.read(new File(x + "," + y + ".png"));   
       int[][] walls = convertImage(room);   
       boolean blocked = false;
       if(direction.equals("UP")) {
@@ -40,7 +40,7 @@ public class Environment extends Map{
       if(direction.equals("RIGHT")) {
          if(walls[y][x+1] == -3584){blocked = true;}
       }
-      return true;      
+      return blocked;      
    } 
     
    static int[][] convertImage(BufferedImage image) {

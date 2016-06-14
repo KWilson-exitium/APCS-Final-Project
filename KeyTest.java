@@ -8,7 +8,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.ActionEvent;
 
 public class KeyTest extends JFrame implements ActionListener, KeyListener{
-   public KeyTest() {this.addKeyListener(this);}  
+   public KeyTest() {this.addKeyListener(this);}   
    String let;
    public void keyPressed(KeyEvent e){
       if(e.getKeyCode() == KeyEvent.VK_W) {

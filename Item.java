@@ -18,9 +18,9 @@ public abstract class Item implements KeyListener, Movable{
    private int currentY;
    
    String getName(Scanner ConfigReader){
-       String name = "WhiteKey"; 
+      String name = "WhiteKey"; 
        
-       return name;
+      return name;
    }
    int[] getStats(Scanner ConfigReader){
       int[] statList = new int[3];
@@ -29,9 +29,9 @@ public abstract class Item implements KeyListener, Movable{
    }
    boolean isKey(Scanner ConfigReader){
       boolean key = false;
-         if (Environment.keyGet(ConfigReader)){
-            key = true;
-         }
+      if (Environment.keyGet(ConfigReader)){
+         key = true;
+      }
       return key;
    }
    void drawAt(int xPos , int yPos , String fetchedFile , Scanner ConfigReader , Graphics g) throws IOException{
@@ -39,9 +39,9 @@ public abstract class Item implements KeyListener, Movable{
       g.drawImage(toDraw , xPos , yPos , null);
       
    }
-   void moveItem(KeyEvent e , boolean isHeld){
+   void moveItem(KeyEvent e , boolean isHeld , KeyTest holdTest){
       while(isHeld){
-         if(/*keylistener statement*/);
+         if(holdTest.key("E")){
             Movable.move(1 , currentX , currentY);
          }
       }
