@@ -19,6 +19,20 @@ public class Map{
       xNum=x;
       yNum=y;
    }
+   void update(double delta, long lastTime , double ns){
+      long now = System.nanoTime();
+      delta += (now - lastTime) / ns;
+      lastTime = now;
+      while(delta >= 1){
+         tick();
+         delta--;
+      }
+      delta += (now - lastTime) / ns;
+      lastTime = now;
+   }
+   void tick(){
+      
+   }
    int getX(){return xNum;}
    int getY(){return yNum;}
 }
